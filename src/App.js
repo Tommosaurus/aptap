@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { useEffect, useState } from "react";
 import {
+  Text,
   Stack,
   Image,
   Table,
