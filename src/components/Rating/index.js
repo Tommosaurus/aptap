@@ -3,12 +3,14 @@ import ReactStars from "react-rating-stars-component";
 
 
 
-export default function Rating({value}) {
+export default function Rating(value) {
+
+
 
     const data = {
         size: 30,
         color: "blue",
-        value: {value},
+        value: 3,
         edit: false,
         emptyIcon: <i className="far fa-star" />,
         halfIcon: <i className="fa fa-star-half-alt" />,

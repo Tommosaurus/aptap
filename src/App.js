@@ -1,19 +1,8 @@
 import "./App.css";
 import React from "react";
 import { useEffect, useState } from "react";
-import {
-  Text,
-  Stack,
-  Image,
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-} from "@chakra-ui/react";
+import {} from "@chakra-ui/react";
+import Row from "./components/Row";
 const axios = require("axios").default;
 
 function App() {
@@ -27,34 +16,25 @@ function App() {
       });
   }, []);
 
- 
+  console.log(deals);
 
   return (
     <div className="App">
-      <Table variant="striped" colorScheme="white">
-        {/* <Thead>
-          <Tr>
-            <Th>Name</Th>
-            <Th>Price per month</Th>
-            <Th>Speed</Th>
-          </Tr>
-        </Thead> */}
-
-        <Tbody>
-          {deals.map((item) => {
-            return (
-              <Tr>
-                <Td>
-                  <Image boxSize="60px" src={item.provider_logo_image_url} />
-                </Td>
-                <Td>{item.provider_name}</Td>
-                <Td>{`£${item.monthly_price}`}</Td>
-                <Td>{`${item.internet_speed}Mbps`}</Td>
-              </Tr>
-            );
-          })}
-        </Tbody>
-      </Table>
+      {deals.map((item) => {
+        return (
+          <Row
+            imgSrc={item.provider_logo_image_url}
+            name={item.provider_name}
+            type={item.deal_name}
+            rating={item.provider_rating * 5}
+            price={item.monthly_price}
+            speed={item.internet_speed}
+            speedType={item.broadband_type}
+            setupCosts={item.set_up_cost}
+            contractLength={item.contract_info}
+          />
+        );
+      })}
     </div>
   );
 }
