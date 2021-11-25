@@ -1,9 +1,9 @@
 import React from "react";
-import { useEffect, useState } from "react";
+
 import Rating from "../Rating";
-import { Flex, Box, Button, Heading, Text, Image } from "@chakra-ui/react";
+import { Flex, Box, Heading, Text, Image } from "@chakra-ui/react";
 import CompareBar from "../CompareBar";
-import { useDisclosure } from "@chakra-ui/hooks";
+
 export default function Row({
   wholeItem,
   imgSrc,
