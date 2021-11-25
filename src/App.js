@@ -7,6 +7,7 @@ const axios = require("axios").default;
 
 function App() {
   const [deals, setDeals] = useState([]);
+  const [compare, setCompare] = useState([]);
 
   useEffect(() => {
     axios
@@ -16,13 +17,14 @@ function App() {
       });
   }, []);
 
-  console.log(deals);
+
 
   return (
     <div className="App">
       {deals.map((item) => {
         return (
           <Row
+            wholeItem={item}
             imgSrc={item.provider_logo_image_url}
             name={item.provider_name}
             type={item.deal_name}
@@ -32,6 +34,8 @@ function App() {
             speedType={item.broadband_type}
             setupCosts={item.set_up_cost}
             contractLength={item.contract_info}
+            compare={compare}
+            setCompare={setCompare}
           />
         );
       })}
