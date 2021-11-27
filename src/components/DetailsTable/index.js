@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Table, Tbody, Tr, Td, Thead } from "@chakra-ui/react";
 import SmallRow from "../SmallRow";
-
+import ReactStars from "react-stars";
 
 export default function DetailsTable({
   rating,
@@ -16,24 +16,26 @@ export default function DetailsTable({
   logo,
   name,
   deal,
-  compare, 
-  setCompare, 
-  handleRemove
+  compare,
+  setCompare,
+  handleRemove,
 }) {
-
-    console.log("rating", rating*5)
-
+  console.log("rating", rating * 5);
 
   return (
     <Table size="sm" variant="striped">
       <Thead>
-        <Button onClick={handleRemove} variant="link">Remove</Button>
+        <Button onClick={handleRemove} variant="link">
+          Remove
+        </Button>
         <SmallRow imgSrc={logo} name={name} type={deal} />
       </Thead>
       <Tbody>
         <Tr>
           <Td fontWeight="bold">Rating</Td>
-         
+          <Td>
+            <ReactStars edit={false} count={5} value={rating} size={18} />
+          </Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Monthly Cost</Td>
@@ -41,7 +43,7 @@ export default function DetailsTable({
         </Tr>
         <Tr>
           <Td fontWeight="bold">Tariff Type</Td>
-          <Td>{tariff ? tariff : 'N/A'}</Td>
+          <Td>{tariff ? tariff : "N/A"}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Speed</Td>

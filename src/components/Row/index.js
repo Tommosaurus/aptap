@@ -2,9 +2,11 @@ import React from "react";
 
 import { Flex, Box, Heading, Text, Image } from "@chakra-ui/react";
 import { SimpleGrid } from "@chakra-ui/layout";
-import { Grid } from "@chakra-ui/layout";
+
 import CompareBar from "../CompareBar";
-// import StarRating from "../StarRating";
+
+import ReactStars from "react-stars";
+
 
 export default function Row({
   wholeItem,
@@ -27,26 +29,28 @@ export default function Row({
       <Box mr={1}>
         <Heading size="md">{name}</Heading>
         <Text fontSize="xs">{type}</Text>
+
+        <ReactStars edit={false} count={5} value={rating} size={18} />
       </Box>
 
-      <Box >
+      <Box>
         <Heading size="md" textColor="#4A90E2">{`£${price}`}</Heading>
         <Text fontSize="xs" textColor="#4A90E2">
           Monthly Cost
         </Text>
       </Box>
 
-      <Box >
+      <Box>
         <Heading size="sm">{`${speed}Mbps`}</Heading>
         <Text fontSize="xs">{`${speedType} Speed`}</Text>
       </Box>
 
-      <Box >
+      <Box>
         <Heading size="sm">{`£${setupCosts}`}</Heading>
         <Text fontSize="xs">Setup costs</Text>
       </Box>
 
-      <Box >
+      <Box>
         <Heading size="sm">{`${contractLength}`}</Heading>
         <Text fontSize="xs">Contract</Text>
       </Box>

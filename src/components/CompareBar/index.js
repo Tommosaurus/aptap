@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Box,
+  
   Button,
   Flex,
   Drawer,
@@ -114,7 +114,7 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                 </Button>
                 <Modal isOpen={modalOpen} onClose={onClose}>
                   <ModalOverlay />
-                  <ModalContent maxW="75rem">
+                  <ModalContent maxW="78rem">
                     <ModalHeader>Compare</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
