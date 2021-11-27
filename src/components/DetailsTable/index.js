@@ -16,11 +16,12 @@ export default function DetailsTable({
   logo,
   name,
   deal,
-  compare,
-  setCompare,
   handleRemove,
+  index
 }) {
   
+
+
   return (
     <Table size="sm" variant="striped">
       <Thead>
