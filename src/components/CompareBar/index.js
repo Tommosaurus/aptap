@@ -1,8 +1,9 @@
 import React from "react";
 import {
-  
   Button,
   Flex,
+  Box,
+  CloseButton,
   Drawer,
   DrawerBody,
   DrawerOverlay,
@@ -29,9 +30,8 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
 
   function handleClick() {
     if (compare.length < 2) {
-      console.log(wholeItem)
+      console.log(wholeItem);
       setCompare(compare.concat(wholeItem));
-     
     }
 
     setRender(true);
@@ -43,9 +43,9 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
     setModalOpen(true);
   }
 
-  // function handleRemove() {
-  //   setCompare((compare) => compare.filter((_, i) => i !== compare.length - 1))
-  // }
+  function handleRemove() {
+    setCompare((compare) => compare.filter((_, i) => i !== compare.length - 1))
+  }
 
   if (render === false) {
     return (
@@ -80,13 +80,13 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
           Add to compare
         </Button>
 
-        <Drawer isOpen={isOpen} placement="bottom" onClose={onClose}>
+        <Drawer trapFocus={false} isOpen={isOpen} placement="bottom" onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
 
-            <DrawerBody>
-              <Flex>
+            <DrawerBody >
+            <Flex justifyContent="center">
                 {compare.map((item) => {
                   return (
                     <>
@@ -95,6 +95,7 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                         name={item.provider_name}
                         type={item.deal_name}
                       />
+                      <CloseButton onClick={handleRemove}/>
                     </>
                   );
                 })}
@@ -118,39 +119,35 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                     <ModalHeader>Compare</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                    <SimpleGrid columns={2}>
-                      {compare.map((item, index) => {
-                        return (
-                          
-                            
-                              <DetailsTable
-                                rating={item.provider_rating * 5}
-                                cost={item.monthly_price}
-                                tariff={item.deal_type}
-                                speed={item.internet_speed}
-                                type={item.broadband_type}
-                                setup={item.set_up_cost}
-                                oneOff={item.set_up_cost}
-                                term={item.contract_info}
-                                data={item.data_limits}
-                                logo={item.provider_logo_image_url}
-                                name={item.provider_name}
-                                deal={item.deal_name}
-                                compare={compare}
-                                setCompare={setCompare}
-                                // handleRemove={handleRemove(index)}
-                              />
-                            
-                          
-                        );
-                      })}
+                      <SimpleGrid columns={2}>
+                        {compare.map((item, index) => {
+                          return (
+                            <DetailsTable
+                              rating={item.provider_rating * 5}
+                              cost={item.monthly_price}
+                              tariff={item.deal_type}
+                              speed={item.internet_speed}
+                              type={item.broadband_type}
+                              setup={item.set_up_cost}
+                              oneOff={item.set_up_cost}
+                              term={item.contract_info}
+                              data={item.data_limits}
+                              logo={item.provider_logo_image_url}
+                              name={item.provider_name}
+                              deal={item.deal_name}
+                              compare={compare}
+                              setCompare={setCompare}
+                              // handleRemove={handleRemove(index)}
+                            />
+                          );
+                        })}
                       </SimpleGrid>
                     </ModalBody>
 
                     <ModalFooter></ModalFooter>
                   </ModalContent>
                 </Modal>
-              </Flex>
+                </Flex>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

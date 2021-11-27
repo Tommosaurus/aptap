@@ -20,8 +20,7 @@ export default function DetailsTable({
   setCompare,
   handleRemove,
 }) {
-  console.log("rating", rating * 5);
-
+  
   return (
     <Table size="sm" variant="striped">
       <Thead>
@@ -33,41 +32,41 @@ export default function DetailsTable({
       <Tbody>
         <Tr>
           <Td fontWeight="bold">Rating</Td>
-          <Td>
+          <Td pl="0px">
             <ReactStars edit={false} count={5} value={rating} size={18} />
           </Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Monthly Cost</Td>
-          <Td>{`£${cost}`}</Td>
+          <Td pl="0px">{`£${cost}`}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Tariff Type</Td>
-          <Td>{tariff ? tariff : "N/A"}</Td>
+          <Td pl="0px">{tariff ? tariff : "N/A"}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Speed</Td>
-          <Td>{`${speed}Mbps`}</Td>
+          <Td pl="0px">{`${speed}Mbps`}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Broadband Type</Td>
-          <Td>{type}</Td>
+          <Td pl="0px">{type}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Set Up Cost</Td>
-          <Td>{`£${setup}`}</Td>
+          <Td pl="0px">{`£${setup}`}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">One Off Cost</Td>
-          <Td>{`£${setup}`}</Td>
+          <Td pl="0px">{`£${setup}`}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Term End</Td>
-          <Td>{term}</Td>
+          <Td pl="0px">{term}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Data Limits</Td>
-          <Td>{data}</Td>
+          <Td pl="0px">{data}</Td>
         </Tr>
       </Tbody>
     </Table>

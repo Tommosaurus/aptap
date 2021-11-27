@@ -1,7 +1,6 @@
 import "./App.css";
 import React from "react";
 import { useEffect, useState } from "react";
-import {} from "@chakra-ui/react";
 import Row from "./components/Row";
 
 import { Box } from "@chakra-ui/layout";
@@ -21,12 +20,9 @@ function App() {
   }, []);
 
   return (
-    
-      
-    <Box m={3} borderWidth="5px" borderRadius="lg">
+    <Box m={3} >
       {deals.map((item) => {
         return (
-          
           <Row
             wholeItem={item}
             imgSrc={item.provider_logo_image_url}
@@ -43,10 +39,7 @@ function App() {
           />
         );
       })}
-     
-      </Box>
-     
-    
+    </Box>
   );
 }
 
