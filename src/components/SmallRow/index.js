@@ -1,6 +1,6 @@
 import React from "react";
 
-import Rating from "../Rating";
+
 import { Flex, Box, Heading, Text, Image } from "@chakra-ui/react";
 
 export default function SmallRow({ imgSrc, name, type, rating }) {
@@ -11,7 +11,7 @@ export default function SmallRow({ imgSrc, name, type, rating }) {
         <Box mr={300} alignItems="center">
           <Heading size="md">{name}</Heading>
           <Text fontSize="xs">{type}</Text>
-          <Rating value={rating}></Rating>
+        
         </Box>
       </Flex>
     </Box>

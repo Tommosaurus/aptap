@@ -3,6 +3,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import {} from "@chakra-ui/react";
 import Row from "./components/Row";
+import { Flex } from "@chakra-ui/layout";
+import { Box } from "@chakra-ui/layout";
+
 const axios = require("axios").default;
 
 function App() {
@@ -17,12 +20,13 @@ function App() {
       });
   }, []);
 
-
-
   return (
-    <div className="App">
+    
+      
+    <Box m={3} borderWidth="5px" borderRadius="lg">
       {deals.map((item) => {
         return (
+          
           <Row
             wholeItem={item}
             imgSrc={item.provider_logo_image_url}
@@ -39,7 +43,10 @@ function App() {
           />
         );
       })}
-    </div>
+     
+      </Box>
+     
+    
   );
 }
 

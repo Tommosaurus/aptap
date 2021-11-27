@@ -1,8 +1,10 @@
 import React from "react";
 
-import Rating from "../Rating";
 import { Flex, Box, Heading, Text, Image } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/layout";
+import { Grid } from "@chakra-ui/layout";
 import CompareBar from "../CompareBar";
+// import StarRating from "../StarRating";
 
 export default function Row({
   wholeItem,
@@ -19,43 +21,41 @@ export default function Row({
   setCompare,
 }) {
   return (
-    <Box m={3}>
-      <Flex align="left" justify="center">
-        <Image boxSize="60px" src={imgSrc} />
-        <Box mr={300} alignItems="center">
-          <Heading size="md">{name}</Heading>
-          <Text fontSize="xs">{type}</Text>
-          <Rating value={rating}></Rating>
-        </Box>
+    <SimpleGrid columns={7} spacing={3}>
+      <Image boxSize="60px" src={imgSrc} />
+      {/* <StarRating value={5} /> */}
+      <Box mr={1}>
+        <Heading size="md">{name}</Heading>
+        <Text fontSize="xs">{type}</Text>
+      </Box>
 
-        <Box mr={10}>
-          <Heading size="md" textColor="#4A90E2">{`£${price}`}</Heading>
-          <Text fontSize="xs" textColor="#4A90E2">
-            Monthly Cost
-          </Text>
-        </Box>
+      <Box >
+        <Heading size="md" textColor="#4A90E2">{`£${price}`}</Heading>
+        <Text fontSize="xs" textColor="#4A90E2">
+          Monthly Cost
+        </Text>
+      </Box>
 
-        <Box mr={10}>
-          <Heading size="sm">{`${speed}Mbps`}</Heading>
-          <Text fontSize="xs">{`${speedType} Speed`}</Text>
-        </Box>
+      <Box >
+        <Heading size="sm">{`${speed}Mbps`}</Heading>
+        <Text fontSize="xs">{`${speedType} Speed`}</Text>
+      </Box>
 
-        <Box mr={10}>
-          <Heading size="sm">{`£${setupCosts}`}</Heading>
-          <Text fontSize="xs">Setup costs</Text>
-        </Box>
+      <Box >
+        <Heading size="sm">{`£${setupCosts}`}</Heading>
+        <Text fontSize="xs">Setup costs</Text>
+      </Box>
 
-        <Box mr={10}>
-          <Heading size="sm">{`${contractLength}`}</Heading>
-          <Text fontSize="xs">Contract</Text>
-        </Box>
+      <Box >
+        <Heading size="sm">{`${contractLength}`}</Heading>
+        <Text fontSize="xs">Contract</Text>
+      </Box>
 
-        <CompareBar
-          compare={compare}
-          setCompare={setCompare}
-          wholeItem={wholeItem}
-        />
-      </Flex>
-    </Box>
+      <CompareBar
+        compare={compare}
+        setCompare={setCompare}
+        wholeItem={wholeItem}
+      />
+    </SimpleGrid>
   );
 }

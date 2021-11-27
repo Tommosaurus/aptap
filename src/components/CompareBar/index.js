@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  CloseButton,
   Button,
   Flex,
   Drawer,
@@ -16,8 +15,9 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  SimpleGrid,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/hooks";
 import DetailsTable from "../DetailsTable";
 import SmallRow from "../SmallRow";
@@ -110,18 +110,19 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                   textColor="white"
                   onClick={handleCompare}
                 >
-                  Compare Deals
+                  {`Compare Deals (${compare.length} of 2)`}
                 </Button>
-                <Modal size="xl" isOpen={modalOpen} onClose={onClose}>
+                <Modal isOpen={modalOpen} onClose={onClose}>
                   <ModalOverlay />
-                  <ModalContent>
+                  <ModalContent maxW="75rem">
                     <ModalHeader>Compare</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
+                    <SimpleGrid columns={2}>
                       {compare.map((item, index) => {
                         return (
-                          <Flex>
-                            <Box>
+                          
+                            
                               <DetailsTable
                                 rating={item.provider_rating * 5}
                                 cost={item.monthly_price}
@@ -139,10 +140,11 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                                 setCompare={setCompare}
                                 // handleRemove={handleRemove(index)}
                               />
-                            </Box>
-                          </Flex>
+                            
+                          
                         );
                       })}
+                      </SimpleGrid>
                     </ModalBody>
 
                     <ModalFooter></ModalFooter>

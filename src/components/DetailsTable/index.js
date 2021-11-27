@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Table, Tbody, Tr, Td, Thead } from "@chakra-ui/react";
 import SmallRow from "../SmallRow";
+
+
 export default function DetailsTable({
   rating,
   cost,
@@ -19,7 +21,7 @@ export default function DetailsTable({
   handleRemove
 }) {
 
-    
+    console.log("rating", rating*5)
 
 
   return (
@@ -31,7 +33,7 @@ export default function DetailsTable({
       <Tbody>
         <Tr>
           <Td fontWeight="bold">Rating</Td>
-          <Td>{rating}</Td>
+         
         </Tr>
         <Tr>
           <Td fontWeight="bold">Monthly Cost</Td>
@@ -39,7 +41,7 @@ export default function DetailsTable({
         </Tr>
         <Tr>
           <Td fontWeight="bold">Tariff Type</Td>
-          <Td>{tariff}</Td>
+          <Td>{tariff ? tariff : 'N/A'}</Td>
         </Tr>
         <Tr>
           <Td fontWeight="bold">Speed</Td>
@@ -58,7 +60,7 @@ export default function DetailsTable({
           <Td>{`£${setup}`}</Td>
         </Tr>
         <Tr>
-          <Td fontWeight="bold">TermEnd</Td>
+          <Td fontWeight="bold">Term End</Td>
           <Td>{term}</Td>
         </Tr>
         <Tr>
