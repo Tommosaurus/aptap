@@ -1,12 +1,8 @@
 import React from "react";
-
 import { Box, Heading, Text, Image } from "@chakra-ui/react";
 import { SimpleGrid } from "@chakra-ui/layout";
-
 import CompareBar from "../CompareBar";
-
 import ReactStars from "react-stars";
-
 
 export default function Row({
   wholeItem,
@@ -25,7 +21,7 @@ export default function Row({
   return (
     <SimpleGrid columns={7} spacing={3}>
       <Image boxSize="60px" src={imgSrc} />
-      {/* <StarRating value={5} /> */}
+
       <Box mr={1}>
         <Heading size="md">{name}</Heading>
         <Text fontSize="xs">{type}</Text>

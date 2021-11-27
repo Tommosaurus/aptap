@@ -17,7 +17,6 @@ export default function DetailsTable({
   name,
   deal,
   handleRemove,
-  index
 }) {
   
 

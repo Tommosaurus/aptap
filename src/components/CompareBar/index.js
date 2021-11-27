@@ -2,7 +2,6 @@ import React from "react";
 import {
   Button,
   Flex,
-  Box,
   CloseButton,
   Drawer,
   DrawerBody,
@@ -33,9 +32,7 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
       console.log("wholeItem", wholeItem);
       setCompare(compare.concat(wholeItem));
     }
-
     setRender(true);
-
     onOpen();
   }
 
@@ -64,7 +61,7 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
         textColor="white"
         onClick={handleClick}
       >
-        Add to compare
+        {compare.includes(wholeItem) ? 'Remove' : 'Add to compare'}
       </Button>
     );
   } else if (render === true) {
@@ -79,11 +76,11 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
           colorScheme="blue"
           variant="outline"
           textColor="white"
-          onClick={handleClick}
+          onClick={compare.includes(wholeItem) ? handleRemove : handleClick}
         >
-          Add to compare
+           {compare.includes(wholeItem) ? 'Remove' : 'Add to compare'}
         </Button>
-
+     
         <Drawer
           trapFocus={false}
           isOpen={isOpen}
