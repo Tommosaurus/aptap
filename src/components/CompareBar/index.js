@@ -43,13 +43,12 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
     setModalOpen(true);
   }
 
-  function handleRemove() {
+  function handleRemove(name) {
     if (compare.length === 1) {
       setCompare([]);
     } else {
-      setCompare((compare) => compare.filter((i) => i === wholeItem));
+      setCompare((compare) => compare.filter((i) => i.provider_name !== name));
     }
-    
   }
 
   if (render === false) {
@@ -105,7 +104,9 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                         name={item.provider_name}
                         type={item.deal_name}
                       />
-                      <CloseButton onClick={handleRemove} />
+                      <CloseButton
+                        onClick={() => handleRemove(item.provider_name)}
+                      />
                     </>
                   );
                 })}
@@ -147,7 +148,7 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
                               deal={item.deal_name}
                               compare={compare}
                               setCompare={setCompare}
-                              handleRemove={handleRemove}
+                              handleRemove={() => handleRemove(item.provider_name)}
                               index={index}
                             />
                           );
