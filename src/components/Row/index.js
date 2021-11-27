@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Flex, Box, Heading, Text, Image } from "@chakra-ui/react";
+import { Box, Heading, Text, Image } from "@chakra-ui/react";
 import { SimpleGrid } from "@chakra-ui/layout";
 
 import CompareBar from "../CompareBar";

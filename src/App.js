@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import {} from "@chakra-ui/react";
 import Row from "./components/Row";
-import { Flex } from "@chakra-ui/layout";
+
 import { Box } from "@chakra-ui/layout";
 
 const axios = require("axios").default;
