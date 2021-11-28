@@ -82,12 +82,15 @@ export default function CompareBar({ compare, setCompare, wholeItem }) {
         </Button>
      
         <Drawer
-          trapFocus={false}
+          useInert={false}
           isOpen={isOpen}
           placement="bottom"
           onClose={onClose}
+          closeOnOverlayClick={true}
+          lockFocusAcrossFrames={false}
+          trapFocus={false}
         >
-          <DrawerOverlay />
+          
           <DrawerContent>
             <DrawerCloseButton />
 
